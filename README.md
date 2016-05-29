@@ -1,5 +1,6 @@
 # YAXL.Redux - Yet Another Xamarin Library - Redux
 [![Build status](https://ci.appveyor.com/api/projects/status/fb3rycbb6mys2k8e?svg=true)](https://ci.appveyor.com/project/tpetrina/yaxl-redux)
+[![NuGet Pre Release](https://img.shields.io/nuget/vpre/YAXL.Redux.svg?maxAge=2592000)]()
 
 ## Intro
 
@@ -7,7 +8,7 @@ YAXL.Redux is a predictable state container for Xamarin and C# applications. It 
 
 Library can be built from sources or installed via NuGet.
 
-  Instal-Package YAXL.Redux -pre
+    PM> Install-Package YAXL.Redux -pre
 
 ## Pull requests and contributions
 
