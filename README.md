@@ -3,7 +3,7 @@
 
 ## Intro
 
-YAXL.REDUX is a predictable state container for Xamarin and C# applications. It is a straightforward C# port of [redux](https://github.com/reactjs/redux) and aims at solving the exactly same problems.
+YAXL.Redux is a predictable state container for Xamarin and C# applications. It is a straightforward C# port of [redux](https://github.com/reactjs/redux) and aims at solving the exactly same problems.
 
 Library can be built from sources or installed via NuGet.
 
