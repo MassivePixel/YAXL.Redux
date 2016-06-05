@@ -26,7 +26,7 @@ namespace SimpleStoreSample
 			store.Dispatch ("-");
 			store.Dispatch ("-");
 
-			Middleware<int> m = (state, dispatch) => next => action =>
+			Middleware<int> m = (state) => next => action =>
 			{
 				Console.WriteLine ("Hello");
 				var result = next (action);

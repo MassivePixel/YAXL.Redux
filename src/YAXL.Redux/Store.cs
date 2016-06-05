@@ -8,11 +8,11 @@ namespace YAXL.Redux
 {
 	using ActionType = System.Object;
 
-	public delegate ActionType DispatchDelegate (ActionType action);
+	public delegate ActionType Dispatcher (ActionType action);
 	public delegate T Reducer<T> (T state, ActionType action);
 
-	public delegate Store<T> CreateStoreDelegate<T> (Reducer<T> reducer, T initialState, Enhancer<T> enhancer);
-	public delegate Func<Reducer<T>, T, Store<T>> Enhancer<T> (CreateStoreDelegate<T> createStore);
+	public delegate Store<T> StoreCreator<T> (Reducer<T> reducer, T initialState, Enhancer<T> enhancer);
+	public delegate StoreCreator<T> Enhancer<T> (StoreCreator<T> createStore);
 
 	public partial class Store<T>
 	{
@@ -20,7 +20,7 @@ namespace YAXL.Redux
 		Reducer<T> reducer;
 
 		public T State { get; private set; }
-		public DispatchDelegate Dispatch { get; private set; }
+		public Dispatcher Dispatch { get; private set; }
 
 		public delegate void SubscribeDelegate (T state);
 		public event SubscribeDelegate Subscribe;
@@ -30,13 +30,6 @@ namespace YAXL.Redux
 			this.reducer = reducer;
 			State = initialState;
 			Dispatch = DoDispatch;
-		}
-
-		private Store (Store<T> other)
-		{
-			this.reducer = other.reducer;
-			this.State = other.State;
-			this.Dispatch = other.Dispatch;
 		}
 
 		ActionType DoDispatch (ActionType action)
@@ -59,16 +52,16 @@ namespace YAXL.Redux
 			return action;
 		}
 
-		public Store<T> WithDispatch (DispatchDelegate dispatch)
-			=> new Store<T> (this)
-			{
-				Dispatch = dispatch
-			};
+		public Store<T> ReplaceDispatch (Dispatcher dispatch)
+		{
+			Dispatch = dispatch;
+			return this;
+		}
 
 		public static Store<T> CreateStore (Reducer<T> reducer, T initialState, Enhancer<T> enhancer = null)
 		{
 			if (enhancer != null)
-				return enhancer (CreateStore) (reducer, initialState);
+				return enhancer (CreateStore) (reducer, initialState, null);
 
 			return new Store<T> (reducer, initialState);
 		}

@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{06E0D104-4721-48B3-B20C-68870B57D12A}</ProjectGuid>
+    <ProjectGuid>{2712A0C5-6FD5-4BB4-8EF1-54DDD83B4D95}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>AsyncActionSample</RootNamespace>
-    <AssemblyName>AsyncActionSample</AssemblyName>
+    <RootNamespace>SimpleEnhancerSample</RootNamespace>
+    <AssemblyName>SimpleEnhancerSample</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -34,7 +34,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\YAXL.Redux\YAXL.Redux.csproj">
+    <ProjectReference Include="..\..\src\YAXL.Redux\YAXL.Redux.csproj">
       <Project>{9798BB2F-C023-4466-9FC3-DB1AE41E09E1}</Project>
       <Name>YAXL.Redux</Name>
     </ProjectReference>

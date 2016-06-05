@@ -15,14 +15,14 @@ install:
   - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
 
 before_build:
-  nuget restore "src/YAXL.Redux/YAXL.Redux.sln"
+  nuget restore "src/YAXL.Redux.sln"
 
 configuration: Release
 platform: Any CPU
 
 build:
   parallel: true
-  project: src/YAXL.Redux/YAXL.Redux/YAXL.Redux.csproj
+  project: src/YAXL.Redux/YAXL.Redux.csproj
   verbosity: minimal
   
 after_build:

@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncActionSample", "AsyncActionSample\AsyncActionSample.csproj", "{06E0D104-4721-48B3-B20C-68870B57D12A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleEnhancerSample", "SimpleEnhancerSample\SimpleEnhancerSample.csproj", "{2712A0C5-6FD5-4BB4-8EF1-54DDD83B4D95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{97138923-6E16-48AD-81D6-6F2AE3B13833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAXL.Redux", "..\src\YAXL.Redux\YAXL.Redux.csproj", "{9798BB2F-C023-4466-9FC3-DB1AE41E09E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStoreSample", "SimpleStoreSample\SimpleStoreSample.csproj", "{19A520B5-C628-45BF-90C4-103DA1EA2D93}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartActionsSample", "SmartActionsSample\SmartActionsSample.csproj", "{7BC945DC-15FB-4B11-93CB-3E3BA89679B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06E0D104-4721-48B3-B20C-68870B57D12A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E0D104-4721-48B3-B20C-68870B57D12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E0D104-4721-48B3-B20C-68870B57D12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E0D104-4721-48B3-B20C-68870B57D12A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19A520B5-C628-45BF-90C4-103DA1EA2D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A520B5-C628-45BF-90C4-103DA1EA2D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A520B5-C628-45BF-90C4-103DA1EA2D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A520B5-C628-45BF-90C4-103DA1EA2D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2712A0C5-6FD5-4BB4-8EF1-54DDD83B4D95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2712A0C5-6FD5-4BB4-8EF1-54DDD83B4D95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2712A0C5-6FD5-4BB4-8EF1-54DDD83B4D95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2712A0C5-6FD5-4BB4-8EF1-54DDD83B4D95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BC945DC-15FB-4B11-93CB-3E3BA89679B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BC945DC-15FB-4B11-93CB-3E3BA89679B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BC945DC-15FB-4B11-93CB-3E3BA89679B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BC945DC-15FB-4B11-93CB-3E3BA89679B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9798BB2F-C023-4466-9FC3-DB1AE41E09E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9798BB2F-C023-4466-9FC3-DB1AE41E09E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9798BB2F-C023-4466-9FC3-DB1AE41E09E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9798BB2F-C023-4466-9FC3-DB1AE41E09E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9798BB2F-C023-4466-9FC3-DB1AE41E09E1} = {97138923-6E16-48AD-81D6-6F2AE3B13833}
+	EndGlobalSection
+EndGlobal
