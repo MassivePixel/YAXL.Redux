@@ -22,8 +22,8 @@ namespace YAXL.Redux
 		public T State { get; private set; }
 		public Dispatcher Dispatch { get; private set; }
 
-		public delegate void SubscribeDelegate (T state);
-		public event SubscribeDelegate Subscribe;
+		public delegate void Subscriber (T state);
+		public event Subscriber Subscribe;
 
 		public Store (Reducer<T> reducer, T initialState)
 		{

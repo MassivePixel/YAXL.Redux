@@ -26,7 +26,7 @@ build:
   verbosity: minimal
   
 after_build:
-  - ps: nuget pack src/YAXL.Redux/YAXL.Redux/YAXL.Redux.csproj -Version $env:APPVEYOR_BUILD_VERSION
+  - ps: nuget pack src/YAXL.Redux/YAXL.Redux.csproj -Version $env:APPVEYOR_BUILD_VERSION
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
 
