@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleStoreSample", "Simple
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartActionsSample", "SmartActionsSample\SmartActionsSample.csproj", "{7BC945DC-15FB-4B11-93CB-3E3BA89679B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComposeReducers", "ComposeReducers\ComposeReducers.csproj", "{156734C8-F721-4240-97D8-A04BC48B77C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{06E0D104-4721-48B3-B20C-68870B57D12A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06E0D104-4721-48B3-B20C-68870B57D12A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06E0D104-4721-48B3-B20C-68870B57D12A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{156734C8-F721-4240-97D8-A04BC48B77C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{156734C8-F721-4240-97D8-A04BC48B77C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{156734C8-F721-4240-97D8-A04BC48B77C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{156734C8-F721-4240-97D8-A04BC48B77C5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{19A520B5-C628-45BF-90C4-103DA1EA2D93}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{19A520B5-C628-45BF-90C4-103DA1EA2D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A520B5-C628-45BF-90C4-103DA1EA2D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
