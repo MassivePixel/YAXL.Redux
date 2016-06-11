@@ -10,6 +10,18 @@ YAXL.Redux is a predictable state container for Xamarin and C# applications. It 
 Library can be built from sources or installed via NuGet.
 
     PM> Install-Package YAXL.Redux -pre
+    
+## Little bit of extra reading
+
+Blog posts about building this library:
+
+ 1. [MVVM, data stores and Redux](http://massivepixel.co/blog/post/mvvm-data-redux)
+ 2. [Implementing Redux in C#, Part 1](http://massivepixel.co/blog/post/redux-csharp-part1)
+ 
+## Similar libraries
+
+ 1. [redux.NET](https://github.com/GuillaumeSalles/redux.NET)
+ 2. [reducto](https://github.com/pshomov/reducto)
 
 ## Pull requests and contributions
 
