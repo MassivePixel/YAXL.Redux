@@ -6,62 +6,79 @@ using YAXL.Redux;
 
 namespace AsyncActionSample
 {
-	public delegate Task AsyncAction<T> (T state, Dispatcher dispatch);
+    public delegate Task AsyncAction<T>(T state, Dispatcher dispatch);
 
-	public static class StoreExtensions
-	{
-		public static void DispatchAsync<T> (this Store<T> store, AsyncAction<T> asyncAction)
-		{
-			store.Dispatch (asyncAction);
-		}
-	}
+    public static class StoreExtensions
+    {
+        public static void DispatchAsync<T>(this Store<T> store, AsyncAction<T> asyncAction)
+        {
+            store.Dispatch(asyncAction);
+        }
+    }
 
-	class MainClass
-	{
-		public static Func<Dispatcher, Dispatcher> Thunk<T> (Store<T> store)
-			=> next => action =>
-			{
-				if (action is AsyncAction<T>)
-				{
-					return ((AsyncAction<T>)action) (store.State, store.Dispatch);
-				}
-				return next (action);
-			};
+    class MainClass
+    {
+        public static Func<Dispatcher, Dispatcher> Log<T>(Store<T> store)
+            => next => action =>
+            {
+                Console.WriteLine($"Action {action.GetType()} started");
+                var result = next(action);
 
-		public static Func<Dispatcher, Dispatcher> Lock<T> (Store<T> store)
-			=> next => action =>
-			{
-				lock (store)
-					return next (action);
-			};
+                if (result is Task)
+                    return ((Task)result).ContinueWith(t =>
+                {
+                    Console.WriteLine($"Action {action.GetType()} finished");
+                });
 
-		public static void Main (string [] args)
-		{
-			var store = Store<int>.CreateStore ((state, action) =>
-			{
-				Console.WriteLine ($"{action.GetType ().FullName}");
+                Console.WriteLine($"Action {action.GetType()} finished");
 
-				if (action is string && (string)action == "+")
-					return state + 1;
+                return result;
+            };
 
-				return state;
-			}, 0, Store<int>.ApplyMiddleware (Thunk));
+        public static Func<Dispatcher, Dispatcher> Thunk<T>(Store<T> store)
+            => next => action =>
+            {
+                if (action is AsyncAction<T>)
+                {
+                    return ((AsyncAction<T>)action)(store.State, store.Dispatch);
+                }
+                return next(action);
+            };
 
-			store.Subscribe += (state) => Console.WriteLine ($"State is {state}");
+        public static Func<Dispatcher, Dispatcher> Lock<T>(Store<T> store)
+            => next => action =>
+            {
+                lock (store)
+                    return next(action);
+            };
 
-			store.Dispatch ((AsyncAction<int>)(async (state, dispatch) =>
-			{
-				await Task.Delay (TimeSpan.FromSeconds (2));
-				dispatch ("+");
-			}));
+        public static void Main(string[] args)
+        {
+            var store = Store<int>.CreateStore((state, action) =>
+            {
+                Console.WriteLine($"{action.GetType().FullName}");
 
-			store.DispatchAsync (async (state, dispatch) =>
-			 {
-				 await Task.Delay (TimeSpan.FromSeconds (3));
-				 dispatch ("+");
-			 });
+                if (action is string && (string)action == "+")
+                    return state + 1;
 
-			Console.ReadKey ();
-		}
-	}
+                return state;
+            }, 0, Store<int>.ApplyMiddleware(Log, Thunk));
+
+            store.Subscribe += (state) => Console.WriteLine($"State is {state}");
+
+            store.Dispatch((AsyncAction<int>)(async (state, dispatch) =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(2));
+                dispatch("+");
+            }));
+
+            store.DispatchAsync(async (state, dispatch) =>
+            {
+                await Task.Delay(TimeSpan.FromSeconds(3));
+                dispatch("+");
+            });
+
+            Console.ReadKey();
+        }
+    }
 }

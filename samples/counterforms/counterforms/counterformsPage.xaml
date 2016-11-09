@@ -6,4 +6,9 @@
 		<Button Clicked="Up_Clicked" Text="+" />
 		<Button Clicked="Down_Clicked" Text="-" />
 	</StackLayout>
+	<StackLayout Orientation="Horizontal">
+		<Label Text="{Binding Count}" />
+		<Button Text="+" Command="{Binding UpCommand}" />
+		<Button Text="-" Command="{Binding DownCommand}" />
+	</StackLayout>
 </ContentPage>
