@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>YAXL.Redux</id>
+    <version>0.2.0-beta</version>
+    <title>Redux - Yet Another Xamarin Library</title>
+    <authors>Toni Petrina</authors>
+    <owners>Massive Pixel d.o.o.</owners>
+    <licenseUrl>https://raw.githubusercontent.com/MassivePixel/YAXL.Redux/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/massivepixel/yaxl.redux</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Predictable state management for C# applications. Port of ReduxJS.</description>
+    <copyright>Copyright Massive Pixel d.o.o. 2016</copyright>
+    <tags>redux</tags>
+  </metadata>
+</package>

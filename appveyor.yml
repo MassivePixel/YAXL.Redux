@@ -2,7 +2,7 @@ branches:
   only:
     - master
 
-version: 0.1.{build}-ci
+version: 0.2.{build}-ci
 assembly_info:
   patch: true
   file: '**\AssemblyInfo.*'
@@ -27,6 +27,7 @@ build:
   
 after_build:
   - ps: nuget pack src/YAXL.Redux/YAXL.Redux.csproj -Version $env:APPVEYOR_BUILD_VERSION
+  - ps: nuget pack src/YAXL.Redux.XamarinForms/YAXL.Redux.XamarinForms.csproj -Version $env:APPVEYOR_BUILD_VERSION -IncludeReferencedProjects
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
 
