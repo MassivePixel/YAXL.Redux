@@ -32,7 +32,7 @@ after_build:
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
 
-deploy:
-  provider: NuGet
-  api_key:
-    secure: LT8bWnUXsN/QwIft5V3jlpmBFz9k5TXXceJ8j42eHYOD79VJ9jaf+qlxq2vy173K
+#deploy:
+#  provider: NuGet
+#  api_key:
+#    secure: LT8bWnUXsN/QwIft5V3jlpmBFz9k5TXXceJ8j42eHYOD79VJ9jaf+qlxq2vy173K
