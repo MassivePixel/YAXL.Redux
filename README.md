@@ -9,7 +9,7 @@ YAXL.Redux is a predictable state container for Xamarin and C# applications. It 
 
 Here is a compelling example
 
-```
+```csharp
 var counter = new Store<int>((state, action) =>
 {
     if (Equals(action, "+"))
@@ -25,7 +25,7 @@ This creates a store that acts as a counter since it holds a single `int` value 
 
 We can use it in our Xamarin app for consistent UI updates. If the UI is give as:
 
-```
+```xml
 <StackLayout VerticalOptions="Center">
 	<Label Text="Counter" />
 	<Label x:Name="CounterValue" />
@@ -36,12 +36,12 @@ We can use it in our Xamarin app for consistent UI updates. If the UI is give as
 
 We would *connect* our store to our UI by projecting the necessary parts. Projection is done when the state is large and when a particular UI part only needs to know about a part of the entire app's state.
 
-```
-    public partial class counterformsPage : ContentPage
+```csharp
+    public partial class CounterFormsPage : ContentPage
     {
         Store<int> counter;
 
-        public counterformsPage()
+        public CounterFormsPage()
         {
             InitializeComponent();
 
