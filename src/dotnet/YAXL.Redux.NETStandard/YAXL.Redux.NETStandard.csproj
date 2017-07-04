@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<VersionPrefix>0.3</VersionPrefix>
+		<TargetFramework>netstandard1.0</TargetFramework>
+		<AssemblyName>YAXL.Redux</AssemblyName>
+		<DebugType>portable</DebugType>
+		<OutputType>Library</OutputType>
+		<PackageId>YAXL.Redux</PackageId>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Include="..\..\YAXL.Redux\*.cs" />
+	</ItemGroup>
+</Project>

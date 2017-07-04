@@ -5,6 +5,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAXL.Redux", "YAXL.Redux\YA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAXL.Redux.XamarinForms", "YAXL.Redux.XamarinForms\YAXL.Redux.XamarinForms.csproj", "{CC5B2EF4-A7D2-4D59-9E1A-6A8B8D65F2C3}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "dotnet", "dotnet", "{6EEEB765-31B5-4F00-99C3-4D424860C5A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YAXL.Redux.NETStandard", "dotnet\YAXL.Redux.NETStandard\YAXL.Redux.NETStandard.csproj", "{901B4831-5F41-40D2-8A01-789DCDD37CAE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,5 +23,12 @@ Global
 		{CC5B2EF4-A7D2-4D59-9E1A-6A8B8D65F2C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC5B2EF4-A7D2-4D59-9E1A-6A8B8D65F2C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC5B2EF4-A7D2-4D59-9E1A-6A8B8D65F2C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{901B4831-5F41-40D2-8A01-789DCDD37CAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{901B4831-5F41-40D2-8A01-789DCDD37CAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{901B4831-5F41-40D2-8A01-789DCDD37CAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{901B4831-5F41-40D2-8A01-789DCDD37CAE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{901B4831-5F41-40D2-8A01-789DCDD37CAE} = {6EEEB765-31B5-4F00-99C3-4D424860C5A5}
 	EndGlobalSection
 EndGlobal
