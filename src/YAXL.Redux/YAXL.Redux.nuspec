@@ -13,4 +13,8 @@
     <copyright>Copyright Massive Pixel d.o.o. 2016</copyright>
     <tags>redux</tags>
   </metadata>
+  <files>
+    <file src="bin\Release\YAXL.Redux.dll" target="lib\netstandard1.0\YAXL.Redux.dll" />
+    <file src="bin\Release\YAXL.Redux.xml" target="lib\netstandard1.0\YAXL.Redux.xml" />
+</files>
 </package>

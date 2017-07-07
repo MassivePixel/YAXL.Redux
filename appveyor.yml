@@ -26,10 +26,8 @@ build:
   verbosity: minimal
   
 after_build:
-  - ps: dotnet restore src/dotnet/YAXL.Redux.NETStandard/YAXL.Redux.NETStandard.csproj
-  - ps: dotnet build src/dotnet/YAXL.Redux.NETStandard/YAXL.Redux.NETStandard.csproj
   - ps: msbuild "src/YAXL.Redux.XamarinForms/YAXL.Redux.XamarinForms.csproj" /m /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  - ps: nuget pack src/YAXL.Redux/YAXL.Redux.csproj -Version $env:APPVEYOR_BUILD_VERSION
+  - ps: nuget pack src/YAXL.Redux/YAXL.Redux.nuspec -Prop Configuration=Release -Version $env:APPVEYOR_BUILD_VERSION
   - ps: nuget pack src/YAXL.Redux.XamarinForms/YAXL.Redux.XamarinForms.csproj -Version $env:APPVEYOR_BUILD_VERSION -IncludeReferencedProjects
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
