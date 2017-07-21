@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <VersionPrefix>0.3</VersionPrefix>
+    <VersionPrefix>0.4</VersionPrefix>
     <TargetFrameworks>netstandard1.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
     <AssemblyName>YAXL.Redux</AssemblyName>
     <DebugType>portable</DebugType>
@@ -12,7 +12,7 @@
     <Authors>Toni Petrina</Authors>
     <PackageLicenseUrl>https://raw.githubusercontent.com/MassivePixel/YAXL.Redux/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/massivepixel/yaxl.redux</PackageProjectUrl>
-    <Copyright>Copyright Massive Pixel d.o.o. 2016</Copyright>
+    <Copyright>Copyright Massive Pixel d.o.o. 2017</Copyright>
     <PackageTags>redux;state management</PackageTags>
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <DebugType>full</DebugType>
