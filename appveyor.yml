@@ -2,37 +2,13 @@ branches:
   only:
     - master
 
+image: Visual Studio 2017
+
 version: 0.3.{build}-ci
-assembly_info:
-  patch: true
-  file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
 
-os: Visual Studio 2015
-install:
-  - set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+build_script:
+  - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:restore
+  - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:pack /p:Configuration=Release
 
-before_build:
-  nuget restore "src/YAXL.Redux.sln"
-
-configuration: Release
-platform: Any CPU
-
-build:
-  parallel: true
-  project: src/YAXL.Redux/YAXL.Redux.csproj
-  verbosity: minimal
-  
-after_build:
-  - ps: msbuild "src/YAXL.Redux.XamarinForms/YAXL.Redux.XamarinForms.csproj" /m /verbosity:minimal /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-  - ps: nuget pack src/YAXL.Redux/YAXL.Redux.nuspec -Prop Configuration=Release -Version $env:APPVEYOR_BUILD_VERSION
-  - ps: nuget pack src/YAXL.Redux.XamarinForms/YAXL.Redux.XamarinForms.csproj -Version $env:APPVEYOR_BUILD_VERSION -IncludeReferencedProjects
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
-
-#deploy:
-#  provider: NuGet
-#  api_key:
-#    secure: LT8bWnUXsN/QwIft5V3jlpmBFz9k5TXXceJ8j42eHYOD79VJ9jaf+qlxq2vy173K
