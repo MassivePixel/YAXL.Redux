@@ -1,6 +1,6 @@
 # YAXL.Redux - Yet Another Xamarin Library | Redux
 [![Build status](https://ci.appveyor.com/api/projects/status/fb3rycbb6mys2k8e?svg=true)](https://ci.appveyor.com/project/tpetrina/yaxl-redux)
-[![NuGet](https://img.shields.io/nuget/dt/YAXL.Redux.svg)](https://www.nuget.org/packages/YAXL.Redux/)
+[![NuGet](https://img.shields.io/nuget/v/YAXL.Redux.svg)]()
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
 
 ## Intro
