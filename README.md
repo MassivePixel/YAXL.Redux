@@ -7,15 +7,27 @@
 
 YAXL.Redux is a predictable state container for Xamarin and C# applications. It is a straightforward C# port of [redux](https://github.com/reactjs/redux) and aims at solving the exactly same problems.
 
-Here is a compelling example
+Let's look at a concrete example:
 
 ```csharp
+// Actions are defined as actual types
+public class IncrementAction {}
+public class DecrementAction {}
+public class SetCounterAction
+{
+    public int Value { get; }
+    
+    public SetCounterAction(int value) { Value = value; }
+}
+
 var counter = new Store<int>((state, action) =>
 {
-    if (Equals(action, "+"))
+    if (action is IncrementAction)
         return state + 1;
-    if (Equals(action, "-"))
+    if (action is DecrementAction)
         return state - 1;
+    if (action is SetCounterAction s)
+        return s.Value;
 
     return state;
 }, 0);
@@ -23,7 +35,7 @@ var counter = new Store<int>((state, action) =>
 
 This creates a store that acts as a counter since it holds a single `int` value inside. It can handle two string based actions (actions can be any object) which serve as increment/decrement.
 
-We can use it in our Xamarin app for consistent UI updates. If the UI is give as:
+We can use it in our Xamarin app for consistent UI updates. If the UI is given as:
 
 ```xml
 <StackLayout VerticalOptions="Center">
@@ -56,9 +68,23 @@ We would *connect* our store to our UI by projecting the necessary parts. Projec
             });
         }
 
-        void Up_Clicked(object sender, EventArgs e) => counter.Dispatch("+");
-        void Down_Clicked(object sender, EventArgs e) => counter.Dispatch("-");
+        void Up_Clicked(object sender, EventArgs e) => counter.Dispatch(new IncrementAction());
+        void Down_Clicked(object sender, EventArgs e) => counter.Dispatch(new DecrementAction());
     }
+```
+
+Actions don't have to be defined as classes, they can be anything reducer can handle:
+```csharp
+var counter = new Store<int>((state, action) =>
+{
+    if (Equals(action, "+"))
+        return state + 1;
+    if (Equals(action, "-"))
+        return state - 1;
+
+    return state;
+}, 0);
+
 ```
 
 Library can be built from sources or installed via NuGet.
