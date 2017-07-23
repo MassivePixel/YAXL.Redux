@@ -4,11 +4,11 @@ branches:
 
 image: Visual Studio 2017
 
-version: 0.3.{build}-ci
+version: 0.4.{build}-ci
 
 build_script:
   - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:restore
-  - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:pack /p:Configuration=Release
+  - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:pack /p:Configuration=Release /p:Version=$env:APPVEYOR_BUILD_VERSION
 
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
