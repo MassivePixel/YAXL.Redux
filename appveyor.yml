@@ -8,7 +8,7 @@ version: 0.4.{build}-ci
 
 build_script:
   - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:restore
-  - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:pack /p:Configuration=Release /p:Version=$env:APPVEYOR_BUILD_VERSION
+  - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:pack /p:Configuration=Release /p:Version="$env:APPVEYOR_BUILD_VERSION"
 
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
