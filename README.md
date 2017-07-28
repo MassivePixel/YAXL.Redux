@@ -9,15 +9,15 @@ YAXL.Redux is a predictable state container for Xamarin and C# applications. It 
 
 Let's look at a concrete example:
 
+### Actions using Types (POCO)
+
 ```csharp
 // Actions are defined as actual types
 public class IncrementAction {}
 public class DecrementAction {}
 public class SetCounterAction
 {
-    public int Value { get; }
-    
-    public SetCounterAction(int value) { Value = value; }
+    public int Value { get; set; }
 }
 
 var counter = new Store<int>((state, action) =>
@@ -33,47 +33,57 @@ var counter = new Store<int>((state, action) =>
 }, 0);
 ```
 
-This creates a store that acts as a counter since it holds a single `int` value inside. It can handle two string based actions (actions can be any object) which serve as increment/decrement.
+This creates a store that acts as a counter since it holds a single `int` value inside. Actions are handled by their type so it means:
+
+* Class name is the action name
+* The traditional `payload` is now defined as Public Properties inside the POCO
 
 We can use it in our Xamarin app for consistent UI updates. If the UI is given as:
 
 ```xml
 <StackLayout VerticalOptions="Center">
-	<Label Text="Counter" />
-	<Label x:Name="CounterValue" />
-	<Button Clicked="Up_Clicked" Text="+" />
-	<Button Clicked="Down_Clicked" Text="-" />
+    <Label Text="Counter" />
+    <Label x:Name="CounterValue" />
+    <Button Clicked="Up_Clicked" Text="+" />
+    <Button Clicked="Down_Clicked" Text="-" />
+    <Button Clicked="SetTo42_Clicked" Text="Set to 42">
 </StackLayout>
 ```
 
 We would *connect* our store to our UI by projecting the necessary parts. Projection is done when the state is large and when a particular UI part only needs to know about a part of the entire app's state.
 
 ```csharp
-    public partial class CounterFormsPage : ContentPage
+public partial class CounterFormsPage : ContentPage
+{
+    Store<int> counter;
+
+    public CounterFormsPage()
     {
-        Store<int> counter;
+        InitializeComponent();
 
-        public CounterFormsPage()
+        // counter creation ommitted
+
+        counter.Connect(mapStateToProps: state => new
         {
-            InitializeComponent();
-
-            // counter creation ommitted
-
-            counter.Connect(mapStateToProps: state => new
-            {
-                count = state
-            }, propsChanged: props =>
-            {
-                CounterValue.Text = props.count.ToString();
-            });
-        }
-
-        void Up_Clicked(object sender, EventArgs e) => counter.Dispatch(new IncrementAction());
-        void Down_Clicked(object sender, EventArgs e) => counter.Dispatch(new DecrementAction());
+            count = state
+        }, propsChanged: props =>
+        {
+            CounterValue.Text = props.count.ToString();
+        });
     }
+
+    private void Up_Clicked(object sender, EventArgs e) => counter.Dispatch(new IncrementAction());
+
+    private void Down_Clicked(object sender, EventArgs e) => counter.Dispatch(new DecrementAction());
+    
+    private void SetTo42_Clicked(object sender, EventArgs e) => counter.Dispatch(new SetCounterAction { Value = 42 });
+}
 ```
 
+### Actions using string
+
 Actions don't have to be defined as classes, they can be anything reducer can handle:
+
 ```csharp
 var counter = new Store<int>((state, action) =>
 {
@@ -86,6 +96,36 @@ var counter = new Store<int>((state, action) =>
 }, 0);
 
 ```
+
+This creates a store that acts as a counter since it holds a single `int` value inside. It can handle two string based actions (actions can be any object) which serve as increment/decrement.
+
+```csharp
+public partial class CounterFormsPage : ContentPage
+{
+    Store<int> counter;
+
+    public CounterFormsPage()
+    {
+        InitializeComponent();
+
+        // counter creation ommitted
+
+        counter.Connect(mapStateToProps: state => new
+        {
+            count = state
+        }, propsChanged: props =>
+        {
+            CounterValue.Text = props.count.ToString();
+        });
+    }
+
+    private void Up_Clicked(object sender, EventArgs e) => counter.Dispatch("+");
+
+    private void Down_Clicked(object sender, EventArgs e) => counter.Dispatch("-");
+}
+```
+
+## How to install?
 
 Library can be built from sources or installed via NuGet.
 
