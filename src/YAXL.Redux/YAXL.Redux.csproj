@@ -1,8 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
+  
   <PropertyGroup>
     <VersionPrefix>0.5</VersionPrefix>
-    <TargetFrameworks>netstandard1.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
+    <TargetFramework>netstandard1.0</TargetFramework>
     <AssemblyName>YAXL.Redux</AssemblyName>
     <DebugType>portable</DebugType>
     <OutputType>Library</OutputType>
@@ -17,15 +18,9 @@
     <GenerateDocumentationFile Condition=" '$(Configuration)' == 'Release' ">true</GenerateDocumentationFile>
     <DebugType>full</DebugType>
   </PropertyGroup>
+  
   <ItemGroup>
     <Compile Include="..\..\YAXL.Redux\*.cs" />
   </ItemGroup>
-
-  <PropertyGroup Condition="'$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8'">
-    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
-    <LanguageTargets>$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets</LanguageTargets>
-    <IncludeProjectPriFile>false</IncludeProjectPriFile>
-  </PropertyGroup>
+  
 </Project>
