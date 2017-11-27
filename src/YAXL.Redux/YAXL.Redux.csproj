@@ -3,7 +3,7 @@
   
   <PropertyGroup>
     <VersionPrefix>0.5</VersionPrefix>
-    <TargetFramework>netstandard1.0</TargetFramework>
+    <TargetFrameworks>netstandard1.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
     <AssemblyName>YAXL.Redux</AssemblyName>
     <DebugType>portable</DebugType>
     <OutputType>Library</OutputType>
@@ -22,5 +22,14 @@
   <ItemGroup>
     <Compile Include="..\..\YAXL.Redux\*.cs" />
   </ItemGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8'">
+    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <NugetTargetMoniker>.NETPortable,Version=v0.0,Profile=Profile259</NugetTargetMoniker>
+    <LanguageTargets>$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets</LanguageTargets>
+    <IncludeProjectPriFile>false</IncludeProjectPriFile>
+  </PropertyGroup>
   
 </Project>

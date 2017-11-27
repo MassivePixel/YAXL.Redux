@@ -1,7 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
+    <OutputType>Library</OutputType>
 
     <PackageId>YAXL.Redux.XamarinForms</PackageId>
     <Description>Predictable state management for C# applications. Port of ReduxJS.</Description>
@@ -21,5 +22,14 @@
   <ItemGroup>
     <ProjectReference Include="..\YAXL.Redux\YAXL.Redux.csproj" />
   </ItemGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'portable-net45+win8+wpa81+wp8'">
+    <TargetFrameworkIdentifier>.NETPortable</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Profile259</TargetFrameworkProfile>
+    <NugetTargetMoniker>.NETPortable,Version=v0.0,Profile=Profile259</NugetTargetMoniker>
+    <LanguageTargets>$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets</LanguageTargets>
+    <IncludeProjectPriFile>false</IncludeProjectPriFile>
+  </PropertyGroup>
 
 </Project>
