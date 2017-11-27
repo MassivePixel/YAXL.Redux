@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <VersionPrefix>0.4</VersionPrefix>
+    <VersionPrefix>0.5</VersionPrefix>
     <TargetFrameworks>netstandard1.0;portable-net45+win8+wpa81+wp8</TargetFrameworks>
     <AssemblyName>YAXL.Redux</AssemblyName>
     <DebugType>portable</DebugType>

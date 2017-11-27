@@ -4,11 +4,13 @@ branches:
 
 image: Visual Studio 2017
 
-version: 0.4.{build}-ci
+version: 0.5.{build}-ci
 
 build_script:
   - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:restore
   - cmd: msbuild src\YAXL.Redux\YAXL.Redux.csproj /t:pack /p:Configuration=Release /p:Version="%APPVEYOR_BUILD_VERSION%"
+  - cmd: msbuild src\YAXL.Redux.XamarinForms\YAXL.Redux.XamarinForms.csproj /t:restore
+  - cmd: msbuild src\YAXL.Redux.XamarinForms\YAXL.Redux.XamarinForms.csproj /t:pack /p:Configuration=Release /p:Version="%APPVEYOR_BUILD_VERSION%"
 
 artifacts:
   - path: '**\YAXL.Redux.*.nupkg'
