@@ -1,6 +1,10 @@
 branches:
   only:
     - master
+    
+environment:
+  COVERALLS_REPO_TOKEN:  
+       secure: JzwU2ypXVCytUn2T7TMFVDepjeoxGvy847LoRM5e25YJRDDGjGpV4VR2ydB7TBWE
 
 image: Visual Studio 2017
 
