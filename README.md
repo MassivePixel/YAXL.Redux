@@ -142,6 +142,7 @@ Blog posts about building this library:
 
  1. [redux.NET](https://github.com/GuillaumeSalles/redux.NET)
  2. [reducto](https://github.com/pshomov/reducto)
+ 3. [ReduxSimple](https://github.com/Odonno/ReduxSimple)
 
 ## Pull requests and contributions
 
