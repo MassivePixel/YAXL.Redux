@@ -135,8 +135,8 @@ Library can be built from sources or installed via NuGet.
 
 Blog posts about building this library:
 
- 1. [MVVM, data stores and Redux](http://massivepixel.co/blog/post/mvvm-data-redux)
- 2. [Implementing Redux in C#, Part 1](http://massivepixel.co/blog/post/redux-csharp-part1)
+ 1. [MVVM, data stores and Redux](https://www.massivepixel.co/old/20160523_MVVMAndRedux/)
+ 2. [Implementing Redux in C#, Part 1](https://www.massivepixel.co/old/20160524_MVVMAndReduxPart2/)
  
 ## Similar libraries
 
